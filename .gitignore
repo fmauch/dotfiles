@@ -1,0 +1,10 @@
+*~
+\#*\#
+*.swp
+git
+profile
+tmux
+vim
+vim_snippets
+vim_snippets_ros
+zsh/.oh-my-zsh

@@ -1,0 +1,89 @@
+#!/bin/bash
+
+# I hate git submodules so I wrote this little script. It uses a wstool-like notation of
+# different objects with url, local name and branch name (and more) which all are installed.
+
+# Default clone method for git (can be either https or ssh)
+method=ssh
+
+######################### Declare modules here #########################
+declare -A module0=(
+  [url]=""
+  [local_name]="stow"
+  [branch]=""
+  [stow_default]=true
+)
+declare -A module1=(
+  [url]="git@github.com:fmauch/vim_snippets.git"
+  [local_name]="vim_snippets"
+  [branch]="master"
+  [stow_default]=false
+)
+declare -A module2=(
+  [url]="git@github.com:fmauch/vim_snippets_ros.git"
+  [local_name]="vim_snippets_ros"
+  [branch]="master"
+  [stow_default]=false
+)
+declare -A module3=(
+  [url]="git@github.com:fmauch/dot_profile.git"
+  [local_name]="profile"
+  [branch]="master"
+  [stow_default]=true
+)
+declare -A module4=(
+  [url]="git@github.com:fmauch/dot_tmux.git"
+  [local_name]="tmux"
+  [branch]="master"
+  [stow_default]=true
+)
+declare -A module5=(
+  [url]="git@github.com:fmauch/dot_vim.git"
+  [local_name]="vim"
+  [branch]="master"
+  [stow_default]=true
+)
+declare -A module6=(
+  [url]="git@github.com:fmauch/oh-my-zsh.git"
+  [local_name]="zsh/.oh-my-zsh"
+  [branch]="show_ahead_and_behind_numbers"
+  [stow_default]=false
+)
+declare -A module7=(
+  [url]=""
+  [local_name]="zsh"
+  [branch]=""
+  [stow_default]=true
+)
+declare -A module8=(
+  [url]="git@github.com:fmauch/dot_git.git"
+  [local_name]="git"
+  [branch]="master"
+  [stow_default]=true
+)
+######################### End of module declaration #########################
+declare -n module
+
+
+# Download and install modules
+for module in "${!module@}"; do
+  # Clone if necessary
+  if [[ ! -z ${module[url]} ]]; then
+    if [[ $method = "https" ]]; then
+      repo=$(sed -e "s/:/\//" -e 's/git\@/https\:\/\//g' <<< ${module[url]})
+    else
+      repo=${module[url]}
+    fi
+
+    echo "Cloning module ${module[local_name]}"
+    git clone -b ${module[branch]} $repo ${module[local_name]}
+  fi
+
+  # Stow it
+  if [[ ${module[stow_default]} == true ]]; then
+    echo "Stowing module ${module[local_name]}"
+    stow ${module[local_name]}
+  else
+    echo "Not stowing module ${module[local_name]}"
+  fi
+done
