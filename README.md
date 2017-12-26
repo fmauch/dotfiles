@@ -9,5 +9,12 @@ To use this installation script it is necessary to have gnu stow installed, whic
 if you want to manage your dotfiles with git.
 
 ## Installation
-To install all dotfiles at once, clone this repository and run the **install.sh** script.
+To install all dotfiles at once, clone this repository and run the `install.sh` script.
 
+```
+cd
+git clone https://github.com/fmauch/dotfiles
+cd dotfiles
+# You might want to have a look at this to see which modules this will pull.
+./install.sh
+```
