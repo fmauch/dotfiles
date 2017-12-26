@@ -3,8 +3,35 @@
 # I hate git submodules so I wrote this little script. It uses a wstool-like notation of
 # different objects with url, local name and branch name (and more) which all are installed.
 
+
+function show_help()
+{
+  echo "Usage:"
+  echo "  $0 [-g {https|ssh}]"
+  echo ""
+  echo "The optional argument -g can be used to define whether git pulls should be done using the https protocol or ssh. Defaults to https."
+}
+
 # Default clone method for git (can be either https or ssh)
-method=ssh
+method=https
+
+# A POSIX variable
+OPTIND=1         # Reset in case getopts has been used previously in the shell.
+while getopts "h?g:" opt; do
+  case "$opt" in
+    h|\?)
+      show_help
+      exit 0
+      ;;
+    g)  method=$OPTARG
+      ;;
+  esac
+done
+
+if [[ "$method" != "https" && "$method" != "ssh" ]]; then
+  echo "ERROR: Illegal git protocoll specified!"
+  show_help
+fi
 
 ######################### Declare modules here #########################
 declare -A module0=(
