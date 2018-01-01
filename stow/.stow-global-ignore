@@ -13,3 +13,4 @@ _darcs
 
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
+README.md
