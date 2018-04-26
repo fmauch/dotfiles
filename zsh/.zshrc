@@ -71,4 +71,4 @@ fi
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 
-source ~/.profile
+source ~/.shellrc
