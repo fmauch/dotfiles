@@ -5,6 +5,5 @@ git
 profile
 tmux
 vim
-vim_snippets
-vim_snippets_ros
+vim_snippets*
 zsh/.oh-my-zsh
