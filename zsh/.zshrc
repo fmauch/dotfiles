@@ -64,11 +64,5 @@ else
   echo "oh-my-zsh not found. Using Some features will not be available!\n"
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 
 source ~/.shellrc
