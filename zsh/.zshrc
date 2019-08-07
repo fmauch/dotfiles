@@ -66,3 +66,4 @@ fi
 
 
 source ~/.shellrc
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
