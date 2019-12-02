@@ -64,6 +64,6 @@ else
   echo "oh-my-zsh not found. Using Some features will not be available!\n"
 fi
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.shellrc
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
