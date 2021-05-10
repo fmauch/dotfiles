@@ -16,3 +16,4 @@ _darcs
 README.md
 LICENSE
 .directory
+.gitmodules
