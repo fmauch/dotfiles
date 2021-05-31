@@ -71,10 +71,10 @@ declare -A module5=(
   [stow_default]=true
 )
 declare -A module6=(
-  [url]="git@github.com:fmauch/oh-my-zsh.git"
+  [url]="git@github.com:ohmyzsh/oh-my-zsh.git"
   [local_name]="zsh/.oh-my-zsh"
-  [branch]="show_ahead_and_behind_numbers"
-  [stow_default]=false
+  [branch]="master"
+  [stow_default]=true
 )
 declare -A module7=(
   [url]=""
