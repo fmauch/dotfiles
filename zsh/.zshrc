@@ -62,7 +62,8 @@ autoload -U bashcompinit && bashcompinit
 if [ -d $ZSH ]; then
   source $ZSH/oh-my-zsh.sh
 else
-  echo "oh-my-zsh not found. Using Some features will not be available!\n"
+  echo "Performing initial setup of oh-my-zsh"
+  git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
