@@ -1,9 +1,9 @@
 *~
 \#*\#
 *.swp
-git
-profile
-tmux
-vim
+dot_git
+dot_profile
+dot_tmux
+dot_vim
 vim_snippets*
 zsh/.oh-my-zsh

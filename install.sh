@@ -54,19 +54,19 @@ declare -A module2=(
 )
 declare -A module3=(
   [url]="git@github.com:fmauch/dot_profile.git"
-  [local_name]="profile"
+  [local_name]="dot_profile"
   [branch]="master"
   [stow_default]=true
 )
 declare -A module4=(
   [url]="git@github.com:fmauch/dot_tmux.git"
-  [local_name]="tmux"
+  [local_name]="dot_tmux"
   [branch]="master"
   [stow_default]=true
 )
 declare -A module5=(
   [url]="git@github.com:fmauch/dot_vim.git"
-  [local_name]="vim"
+  [local_name]="dot_vim"
   [branch]="master"
   [stow_default]=true
 )
@@ -78,13 +78,13 @@ declare -A module6=(
 )
 declare -A module7=(
   [url]=""
-  [local_name]="zsh"
+  [local_name]="dot_zsh"
   [branch]=""
   [stow_default]=true
 )
 declare -A module8=(
   [url]="git@github.com:fmauch/dot_git.git"
-  [local_name]="git"
+  [local_name]="dot_git"
   [branch]="master"
   [stow_default]=true
 )
