@@ -60,6 +60,7 @@ autoload -U bashcompinit && bashcompinit
 # User configuration
 
 if [ -d $ZSH ]; then
+  DISABLE_AUTO_UPDATE="true"
   source $ZSH/oh-my-zsh.sh
 else
   echo "Performing initial setup of oh-my-zsh"
