@@ -8,6 +8,11 @@ export ZSH_CUSTOM=$HOME/.zsh_custom
 # time that oh-my-zsh is loaded.
 ZSH_THEME="bureau_fmauch"
 
+
+if [ ! -e ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/lxd-completion-zsh ]; then
+  git clone https://github.com/endaaman/lxd-completion-zsh ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/lxd-completion-zsh
+fi
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -50,7 +55,7 @@ ZSH_THEME="bureau_fmauch"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ubuntu docker taskwarrior)
+plugins=(git ubuntu docker taskwarrior lxd-completion-zsh )
 
 # For using bash completion
 # You still have to source each completion file individually!!!
