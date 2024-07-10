@@ -82,6 +82,12 @@ bureau_git_prompt () {
   echo $_result
 }
 
+rob_folders_prompt () {
+  if [[ -n "${ROB_FOLDERS_ACTIVE_ENV}" ]]; then
+    echo "[${ROB_FOLDERS_ACTIVE_ENV}]"
+  fi
+}
+
 
 _PATH="%{$fg_bold[white]%}%~%{$reset_color%}"
 
@@ -122,7 +128,7 @@ bureau_precmd () {
 
 setopt prompt_subst
 PROMPT='> $_LIBERTY '
-RPROMPT='$(nvm_prompt_info) $(bureau_git_prompt)'
+RPROMPT='$(nvm_prompt_info) $(bureau_git_prompt) $(rob_folders_prompt)'
 
 autoload -U add-zsh-hook
 add-zsh-hook precmd bureau_precmd
