@@ -12,6 +12,9 @@ ZSH_THEME="bureau_fmauch"
 if [ ! -e ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/lxd-completion-zsh ]; then
   git clone https://github.com/endaaman/lxd-completion-zsh ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/lxd-completion-zsh
 fi
+if [ ! -e ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-pipx ]; then
+  git clone https://github.com/thuandt/zsh-pipx ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-pipx
+fi
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,7 +58,7 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ubuntu docker taskwarrior lxd-completion-zsh )
+plugins=(git ubuntu docker taskwarrior lxd-completion-zsh zsh-pipx gh)
 
 # For using bash completion
 # You still have to source each completion file individually!!!
