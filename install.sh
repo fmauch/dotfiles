@@ -41,48 +41,30 @@ declare -A module0=(
   [stow_default]=true
 )
 declare -A module1=(
-  [url]="git@github.com:fmauch/vim_snippets.git"
-  [local_name]="vim_snippets"
-  [branch]="master"
-  [stow_default]=false
-)
-declare -A module2=(
-  [url]="git@github.com:fmauch/vim_snippets_ros.git"
-  [local_name]="vim_snippets_ros"
-  [branch]="master"
-  [stow_default]=false
-)
-declare -A module3=(
   [url]="git@github.com:fmauch/dot_profile.git"
   [local_name]="dot_profile"
   [branch]="master"
   [stow_default]=true
 )
-declare -A module4=(
+declare -A module2=(
   [url]="git@github.com:fmauch/dot_tmux.git"
   [local_name]="dot_tmux"
   [branch]="master"
   [stow_default]=true
 )
-declare -A module5=(
+declare -A module3=(
   [url]="git@github.com:fmauch/dot_vim.git"
   [local_name]="dot_vim"
   [branch]="master"
   [stow_default]=true
 )
-declare -A module6=(
-  [url]="git@github.com:ohmyzsh/oh-my-zsh.git"
-  [local_name]="zsh/.oh-my-zsh"
-  [branch]="master"
-  [stow_default]=true
-)
-declare -A module7=(
+declare -A module4=(
   [url]=""
-  [local_name]="dot_zsh"
+  [local_name]="zsh"
   [branch]=""
   [stow_default]=true
 )
-declare -A module8=(
+declare -A module5=(
   [url]="git@github.com:fmauch/dot_git.git"
   [local_name]="dot_git"
   [branch]="master"
@@ -91,6 +73,10 @@ declare -A module8=(
 ######################### End of module declaration #########################
 declare -n module
 
+if [ -f "${HOME}/.bashrc" && ! -h "${HOME}/.bashrc" ]; then
+  echo "Storing existing ~/.bashrc in ~/.bashrc.bak"
+  mv "${HOME}/.bashrc" "${HOME}/.bashrc.bak"
+fi
 
 # Download and install modules
 for module in "${!module@}"; do
@@ -102,8 +88,10 @@ for module in "${!module@}"; do
       repo=${module[url]}
     fi
 
-    echo "Cloning module ${module[local_name]}"
-    git clone -b ${module[branch]} $repo ${module[local_name]}
+    if [ ! -d "${module[local_name]}" ]; then
+      echo "Cloning module ${module[local_name]}"
+      git clone -b ${module[branch]} $repo ${module[local_name]}
+    fi
   fi
 
   # Stow it
