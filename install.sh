@@ -73,9 +73,13 @@ declare -A module5=(
 ######################### End of module declaration #########################
 declare -n module
 
-if [ -f "${HOME}/.bashrc" && ! -h "${HOME}/.bashrc" ]; then
+if [[ -f "${HOME}/.bashrc" && ! -h "${HOME}/.bashrc" ]]; then
   echo "Storing existing ~/.bashrc in ~/.bashrc.bak"
   mv "${HOME}/.bashrc" "${HOME}/.bashrc.bak"
+fi
+if [[ -f "${HOME}/.zshrc" && ! -h "${HOME}/.zshrc" ]]; then
+  echo "Storing existing ~/.zshrc in ~/.zshrc.bak"
+  mv "${HOME}/.zshrc" "${HOME}/.zshrc.bak"
 fi
 
 # Download and install modules
