@@ -82,6 +82,9 @@ if [[ -f "${HOME}/.zshrc" && ! -h "${HOME}/.zshrc" ]]; then
   mv "${HOME}/.zshrc" "${HOME}/.zshrc.bak"
 fi
 
+mkdir -p "${HOME}/bin"
+mkdir -p "${HOME}/.config"
+
 # Download and install modules
 for module in "${!module@}"; do
   # Clone if necessary
