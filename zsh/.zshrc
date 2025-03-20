@@ -78,3 +78,8 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.shellrc
+if [ -e $HOME/.local/bin/rob_folders_source.sh ]; then
+  source $HOME/.local/bin/rob_folders_source.sh
+elif [ -e /usr/local/bin/rob_folders_source.sh ]; then
+  source /usr/local/bin/rob_folders_source.sh
+fi
